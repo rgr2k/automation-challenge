@@ -11,6 +11,8 @@ const Section1 = {
    */
   elements: {
     sampleElement: '[data-test=sample-element-to-be-safely-deleted]',
+    showTableButton: '[data-test=table-toggle-button]',
+    mainTable: '[data-test=user-table]',
   },
 
   /**
