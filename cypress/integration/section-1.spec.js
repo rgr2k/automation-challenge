@@ -1,14 +1,14 @@
 /// <reference types="Cypress" />
 const { Section1 } = require('../objects/section-1')
 
-describe.skip('Section 1 - DOM Tables', () => {
+describe('Section 1 - DOM Tables', () => {
  
    before(() => {
 
       cy.visit('/')
 
       cy
-        .contains('Section 1')
+        .contains(Section1.literals.SECTION_1)
           .click()
     })
 
@@ -40,7 +40,7 @@ describe.skip('Section 1 - DOM Tables', () => {
     it('Assert that the table is 5 columns wide', () => {
 
       cy
-        .get('.table-header > th')
+        .get(Section1.elements.columnHeader)  
           .then(columns => {
             expect(columns).to.have.length(5)
         })
@@ -50,7 +50,7 @@ describe.skip('Section 1 - DOM Tables', () => {
     it('Assert that the table is 10 rows long, excluding the first (header) row', () => {
 
      cy
-      .get('table > tbody > tr:not(:first-child)')
+      .get(Section1.elements.TableExcHeader) 
         .then(rows => {
           expect(rows).to.have.length(10)
       })     
@@ -59,8 +59,8 @@ describe.skip('Section 1 - DOM Tables', () => {
 
     it('Assert that at least 5 entries have the role "user"', () => {
 
-      var target = 'user'
-      cy.get('table > tbody > tr:not(:first-child)> th:nth-child(5)').then($el => {
+      var target = Section1.literals.USER
+      cy.get(Section1.elements.ColumnUser).then($el => {   
         cy.wrap($el).then($els => {
             expect($els.filter(index => $els.eq(index).is(`:contains(${target})`)))
               .to.have.length.above(4)
@@ -73,20 +73,20 @@ describe.skip('Section 1 - DOM Tables', () => {
 
       const getAge = birthDate => Math.floor((new Date() - new Date(birthDate).getTime()) / 3.15576e+10)
 
-                  var list = []
-                  cy.get('table > tbody > tr:not(:first-child)> th:nth-child(4)').each(($el, index) => {
+        var list = []
+        cy.get( Section1.elements.ColumnDate).each(($el, index) => {
 
-                    if (getAge($el.text()) > 60) {
-                      list.push($el.text())              
-                    }
+          if (getAge($el.text()) > 60) {
+            list.push($el.text())              
+          }
 
-                  }).then(() => {
-                    cy.log(list)
-                    let length = list.length;
-                    expect(length).to.equal(3)
-                  })
-
+        }).then(() => {
+          cy.log(list)
+          let length = list.length;
+          expect(length).to.equal(3)
         })
+
+    })
 
 }),
 
@@ -97,14 +97,14 @@ describe('Section 1 - DOM Forms', () => {
      cy.visit('/')
 
      cy
-       .contains('Section 1')
+       .contains(Section1.literals.SECTION_1)
          .click()
    })
 
    it('Assert that the form is not visible', () => {
 
      cy
-       .get('[data-test=signup-form]')
+       .get(Section1.elements.MainForm) 
          .should('not.be.visible');
        
    })
@@ -112,12 +112,12 @@ describe('Section 1 - DOM Forms', () => {
    it('After clicking the "Show form" button, assert that the form is visible', () => {
 
      cy
-       .get('[data-test=form-toggle-button]')
+       .get(Section1.elements.ShowFormButton) 
         .should('be.visible')
              .click()
 
      cy
-       .get('[data-test=signup-form]')
+       .get(Section1.elements.MainForm) 
        .should('be.visible');
        
    }),
@@ -125,13 +125,13 @@ describe('Section 1 - DOM Forms', () => {
    it('Fill in the "Name" and "Age" inputs, and assert that both inputs are filled', () => {
 
     cy
-      .get('[data-test=full-name-input]')
+      .get(Section1.elements.InputName) 
         .type('Alay Care').should('be.visible')
         .invoke('val')
         .should('not.be.empty');
 
    cy
-      .get('[data-test=age-input]')
+      .get(Section1.elements.InputAge) 
         .type('18').should('be.visible')
         .invoke('val')
         .should('not.be.empty');      
@@ -141,28 +141,28 @@ describe('Section 1 - DOM Forms', () => {
    it('Select "Female" from the select option, and assert that the value is "female"', () => {
 
     cy
-     .get('[data-test=gender-select]')
-       .select('Female')
-        .should('have.value', 'female')
+     .get(Section1.elements.SelectGender) 
+       .select(Section1.literals.FEMALE)
+        .should('have.value', Section1.literals.FEMALE_LOWERCASE)
   
    }),
 
    it('Tick the "Nurse" checkbox and assert that the value "nurse" is true', () => {
 
-    cy.get('[data-test=nurse-input]')
+    cy.get(Section1.elements.NurseCheck)  
       .check()
         .should('be.checked')
           .invoke('attr', 'name')
-            .should('eq', 'nurse')
+            .should('eq', Section1.literals.NURSE)
 
   }),
 
    it('Click on the "Submit" button and assert that there is an alert window showing with the text "Form submitted!"', () => {
      
-      cy.get('[data-test=submit-btn]').should('be.visible').click()
+      cy.get(Section1.elements.SubmitButton).should('be.visible').click() 
 
       cy.on('window:alert', (text) => {
-        expect(text).to.contains('Form submitted!');
+        expect(text).to.contains(Section1.literals.FORM_WINDOW_ALERT_TEXT);
       });
 
   })
