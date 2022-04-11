@@ -9,6 +9,7 @@
     "dev": "npm start",
     "lint": "npx eslint app/**/*.js",
     "cy:open": "cypress open",
+    "cy:run": "cypress run",
     "cy:verify": "cypress verify",
     "cy:info": "cypress info",
     "cy:version": "cypress version",
