@@ -29,11 +29,33 @@ describe('Section 2 - API Interactions', () => {
             title:  Section2.literals.ABNORMAL_TEXT,
           })
         })
-        
+
     cy.on('window:alert', (text) => {
       expect(text).to.contains(Section2.literals.ABNORMAL_TEXT);
 
     });
   })
+
+}),
+
+describe('Section 2 - Browser API: Opening a new tab', () => {
+  before(() => {
+
+    cy.visit('/')
+
+    cy
+      .contains(Section2.literals.SECTION_2)
+        .click()
+  })
+
+  it('Assert that the button does what its supposed to do', () => {
+
+    cy.get(Section2.elements.accessTabsHref) 
+      .click()
+        .should('have.attr', 'href', '/')
+          .should('have.attr', 'target', '_blank')
+            .should('have.attr', 'rel', 'noopener noreferrer')
+           
+    })
 
 })

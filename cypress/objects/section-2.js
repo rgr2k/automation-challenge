@@ -13,7 +13,8 @@ const Section2 = {
    */
   elements: {
     sampleElement: '[data-test=sample-element-to-be-safely-deleted]',
-    networkCallButton: '[data-test=network-call-button]'
+    networkCallButton: '[data-test=network-call-button]',
+    accessTabsHref: 'div > div > div:nth-child(3) > a'
   },
 
   /**
