@@ -74,9 +74,9 @@ describe('Section 2 - Browser API: Downloading a file', () => {
   it('Assert that the button does what its supposed to do', () => {
 
     const path = require("path");
-    const downloadsFolder = Cypress.config("/Users/rgr2k/Downloads");
+    const downloadsFolder = Cypress.config(Section2.literals.LOCAL_PATH);
 
-    cy.get('[data-test=file-download-button]')
+    cy.get(Section2.elements.downloadButton) 
       .click()
         .should('have.attr', 'download')
           .and('equal', 'true')

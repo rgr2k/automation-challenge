@@ -5,7 +5,8 @@ const Section2 = {
   literals: {
     SAMPLE_LITERAL: 'This is a sample literal. You can safely delete it.',
     SECTION_2: 'Section 2',
-    ABNORMAL_TEXT: 'Abnormally long network call!'
+    ABNORMAL_TEXT: 'Abnormally long network call!',
+    LOCAL_PATH: '/Users/rgr2k/Downloads'
   },
 
   /**
@@ -14,7 +15,8 @@ const Section2 = {
   elements: {
     sampleElement: '[data-test=sample-element-to-be-safely-deleted]',
     networkCallButton: '[data-test=network-call-button]',
-    accessTabsHref: 'div > div > div:nth-child(3) > a'
+    accessTabsHref: 'div > div > div:nth-child(3) > a',
+    downloadButton: '[data-test=file-download-button]'
   },
 
   /**
