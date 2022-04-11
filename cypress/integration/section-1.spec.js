@@ -74,7 +74,7 @@ describe('Section 1 - DOM Tables', () => {
       const getAge = birthDate => Math.floor((new Date() - new Date(birthDate).getTime()) / 3.15576e+10)
 
         var list = []
-        cy.get( Section1.elements.ColumnDate).each(($el, index) => {
+        cy.get( Section1.elements.ColumnDate).each(($el) => {
 
           if (getAge($el.text()) > 60) {
             list.push($el.text())              

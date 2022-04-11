@@ -4,6 +4,8 @@ const Section2 = {
    */
   literals: {
     SAMPLE_LITERAL: 'This is a sample literal. You can safely delete it.',
+    SECTION_2: 'Section 2',
+    ABNORMAL_TEXT: 'Abnormally long network call!'
   },
 
   /**
@@ -11,6 +13,7 @@ const Section2 = {
    */
   elements: {
     sampleElement: '[data-test=sample-element-to-be-safely-deleted]',
+    networkCallButton: '[data-test=network-call-button]'
   },
 
   /**
