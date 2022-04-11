@@ -34,7 +34,9 @@
   "devDependencies": {
     "@bahmutov/print-env": "1.2.0",
     "@cypress/eslint-plugin-dev": "5.0.0",
+    "cy-verify-downloads": "0.1.4",
     "cypress": "6.2.1",
+    "cypress-downloadfile": "1.2.1",
     "eslint": "7.0.0",
     "eslint-plugin-cypress": "2.8.1",
     "eslint-plugin-json-format": "2.0.1",

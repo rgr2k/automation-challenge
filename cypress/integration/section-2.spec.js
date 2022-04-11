@@ -58,4 +58,32 @@ describe('Section 2 - Browser API: Opening a new tab', () => {
            
     })
 
+}),
+
+
+describe('Section 2 - Browser API: Downloading a file', () => {
+  before(() => {
+
+    cy.visit('/')
+
+    cy
+      .contains(Section2.literals.SECTION_2)
+        .click()
+  })
+
+  it('Assert that the button does what its supposed to do', () => {
+
+    const path = require("path");
+    const downloadsFolder = Cypress.config("/Users/rgr2k/Downloads");
+
+    cy.get('[data-test=file-download-button]')
+      .click()
+        .should('have.attr', 'download')
+          .and('equal', 'true')
+
+    
+    cy.readFile(path.join(String(downloadsFolder), "javascript-logo.png")).should("exist");
+
+    })
+
 })
