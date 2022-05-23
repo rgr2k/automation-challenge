@@ -1,13 +1,8 @@
 {
-  "name": "alayacare-cypress-interview-handbook",
+  "name": "cloudapp-cypress-cloudapp",
   "version": "1.0.0",
-  "description": "Alayacare's interview project for QA automation.",
+  "description": "Cloudapp's project for QA automation Assessment",
   "scripts": {
-    "start:section-2": "node app/assets/js/section-2/server.js",
-    "start": "serve --listen ${PORT:-8080}",
-    "start:windows": "serve --listen 8080",
-    "dev": "npm start",
-    "lint": "npx eslint app/**/*.js",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "cy:verify": "cypress verify",
@@ -17,19 +12,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:AlayaCare/cypress-interview-handbook.git"
+    "url": "git@github.com:rgr2k/cloudapp-assessment.git" 
   },
-  "author": "AlayaCare",
+  "author": "Rodrigo Rodrigue",
   "license": "MIT",
   "bugs": {
-    "url": "git@github.com:AlayaCare/cypress-interview-handbook.git/issues"
+    "url": "git@github.com:rgr2k/cloudapp-assessment.git/issues"
   },
-  "homepage": "git@github.com:AlayaCare/cypress-interview-handbook.git#readme",
+  "homepage": "git@github.com:rgr2k/cloudapp-assessment.git#readme",
   "dependencies": {
-    "dayjs": "1.11.0",
-    "json-server": "0.16.3",
-    "nocache": "2.1.0",
-    "serve": "11.3.0"
+    "dayjs": "1.11.0"
   },
   "devDependencies": {
     "@bahmutov/print-env": "1.2.0",
@@ -40,12 +32,7 @@
     "eslint": "7.0.0",
     "eslint-plugin-cypress": "2.8.1",
     "eslint-plugin-json-format": "2.0.1",
-    "eslint-plugin-mocha": "5.3.0",
-    "execa": "2.0.5",
-    "globby": "9.1.0",
-    "stop-build": "1.1.0",
-    "typescript": "3.7.4",
-    "yaml-lint": "1.2.4"
+    "eslint-plugin-mocha": "5.3.0"
   },
   "engines": {
     "node": ">=4"

@@ -2,25 +2,23 @@
 const { Section1 } = require('../objects/section-1')
 
 describe('Section 1 - DOM Tables', () => {
- 
-   before(() => {
 
+   before(() => {
+     
       cy.visit('/')
 
       cy
         .contains(Section1.literals.SECTION_1)
-          .click()
+          .click() 
     })
-
+    
     it('Assert that the table is not visible', () => {
 
       cy
         .get(Section1.elements.showTableButton)
           .should('be.visible');
 
-      cy
-        .get(Section1.elements.mainTable)
-          .should('not.be.visible');
+      cy.get(Section1.elements.mainTable).should('not.be.visible');
         
     })
     
@@ -38,7 +36,7 @@ describe('Section 1 - DOM Tables', () => {
     }),
 
     it('Assert that the table is 5 columns wide', () => {
-
+      
       cy
         .get(Section1.elements.columnHeader)  
           .then(columns => {
@@ -83,6 +81,7 @@ describe('Section 1 - DOM Tables', () => {
         }).then(() => {
           cy.log(list)
           let length = list.length;
+
           expect(length).to.equal(3)
         })
 
@@ -154,17 +153,13 @@ describe('Section 1 - DOM Forms', () => {
         .should('be.checked')
           .invoke('attr', 'name')
             .should('eq', Section1.literals.NURSE)
-
   }),
 
    it('Click on the "Submit" button and assert that there is an alert window showing with the text "Form submitted!"', () => {
-     
       cy.get(Section1.elements.SubmitButton).should('be.visible').click() 
 
       cy.on('window:alert', (text) => {
         expect(text).to.contains(Section1.literals.FORM_WINDOW_ALERT_TEXT);
       });
-
   })
-
 })

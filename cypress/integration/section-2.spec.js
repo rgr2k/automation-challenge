@@ -1,3 +1,4 @@
+/// <reference types="Cypress" />
 const { Section2 } = require('../objects/section-2')
 
 describe('Section 2 - API Interactions', () => {
@@ -8,6 +9,8 @@ describe('Section 2 - API Interactions', () => {
     cy
       .contains(Section2.literals.SECTION_2)
         .click()
+
+        console.log('bla')
   })
 
   it('Http: Waiting for network calls', () => {
